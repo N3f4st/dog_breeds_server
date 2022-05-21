@@ -1,11 +1,13 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 require('dotenv').config();
-let app = express();
 
-app.use('/test', (req, resp, done)=> {
-    return resp.json('Todo genial, ¿cierto?').status(200);
-})
+let app = express();
+app.use(bodyParser.json({limit: '1mb', extended: true}));
+app.use(bodyParser.urlencoded({limit: '1mb', extended: true}));
+
+app.use(require('./routes'));
 
 // For not hanlded paths
 app.use((req, res, done)=> {

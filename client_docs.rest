@@ -1,2 +1,10 @@
-GET http://localhost:5000/testd
+GET http://localhost:5000/test
 ###
+POST http://localhost:5000/auth/sign
+Content-Type: application/json
+
+{
+    "user": "doghouse",
+    "password": "1234",
+    "appKey": "doggoservice"
+}

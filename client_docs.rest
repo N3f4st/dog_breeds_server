@@ -1,4 +1,5 @@
 GET http://localhost:5000/test
+
 ###
 POST http://localhost:5000/auth/sign
 Content-Type: application/json
@@ -6,5 +7,17 @@ Content-Type: application/json
 {
     "user": "doghouse",
     "password": "1234",
+    "appKey": "doggoservice"
+}
+
+###
+POST http://localhost:5000/auth/user_register
+Content-Type: application/json
+
+{
+    "userName": "ale.lacayo",
+    "email": "ale.lacayo@somedomain.com",
+    "password": "pescadito04",
+    "name": "Alexandra Lacayo",
     "appKey": "doggoservice"
 }

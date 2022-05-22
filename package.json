@@ -1,0 +1,28 @@
+{
+  "name": "dog_breeds_server",
+  "version": "1.0.0",
+  "description": "LionMane microservice to serve dog information",
+  "main": "./server.js",
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N3f4st/dog_breeds_server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/N3f4st/dog_breeds_server/issues"
+  },
+  "homepage": "https://github.com/N3f4st/dog_breeds_server#readme",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "dotenv": "16.0.1",
+    "express": "4.18.1",
+    "pg": "8.7.3",
+    "bcryptjs": "2.4.3",
+    "jsonwebtoken": "8.5.1"
+  }
+}

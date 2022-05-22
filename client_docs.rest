@@ -1,0 +1,36 @@
+GET http://localhost:5000/test
+
+###
+POST http://localhost:5000/auth/sign
+Content-Type: application/json
+
+{
+    "email": "ale.lacayo@somedomain.com",
+    "password": "pescadito04",
+    "appKey": "doggoservice"
+}
+
+###
+POST http://localhost:5000/auth/signup
+Content-Type: application/json
+
+{
+    "email": "ale.lacayo@somedomain.com",
+    "password": "pescadito04",
+    "name": "Alexandra Lacayo",
+    "appKey": "doggoservice"
+}
+###
+GET http://localhost:5000/api/dog-api-bypass/breed/list
+Content-Type: application/json
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInJvbGVJZCI6MSwiZnVsbE5hbWUiOiJBbGV4YW5kcmEgTGFjYXlvIiwiaWF0IjoxNjUzMjYwNDgwLCJleHAiOjE2NTMyNjA1NDB9.wUmpnehkZqfr1BOiAKA8kq4-yw0WwEYGmY0p0_hRXdI
+
+###
+GET http://localhost:5000/api/dog-api-bypass/sub-bread/hound/list
+Content-Type: application/json
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInJvbGVJZCI6MSwiZnVsbE5hbWUiOiJBbGV4YW5kcmEgTGFjYXlvIiwiaWF0IjoxNjUzMjYwNDgwLCJleHAiOjE2NTMyNjA1NDB9.wUmpnehkZqfr1BOiAKA8kq4-yw0WwEYGmY0p0_hRXdI
+
+###
+GET http://localhost:5000/api/dog-api-bypass/sub-bread/hound/radom-image
+Content-Type: application/json
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInJvbGVJZCI6MSwiZnVsbE5hbWUiOiJBbGV4YW5kcmEgTGFjYXlvIiwiaWF0IjoxNjUzMjYwNDgwLCJleHAiOjE2NTMyNjA1NDB9.wUmpnehkZqfr1BOiAKA8kq4-yw0WwEYGmY0p0_hRXdI

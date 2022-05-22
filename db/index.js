@@ -9,5 +9,10 @@ const pool = new Pool({
   });
 
 module.exports = {
+    /**
+   * Makes a raw query to the linked database.
+   * @param {string} sqlQuery - pl/pgsql query.
+   * @param {string[]} params - String's array of parameters that comes from the query.
+   */
   query: (sqlQuery, params) => pool.query(sqlQuery, params),
 }

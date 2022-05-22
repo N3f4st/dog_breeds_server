@@ -7,5 +7,7 @@ module.exports = {
     WLCM_CLIENT_MSJ: 'Welcome.',
     NFNDAPK_SERVER_MSJ: 'Server Key not found.',
     USRALRDYEXST_CLIENT_MSJ: 'User already exist.',
-    USRCREATED_CLIENT_MSJ: 'User successfully created.'
+    USRCREATED_CLIENT_MSJ: 'User successfully created.',
+    DOG_API_ERR_CLIENT_MSJ: 'There was an error retrieving data from the api.',
+    DOG_API_SCSS_CLIENT_MSJ: 'Api data successfully retrieved.'
 }

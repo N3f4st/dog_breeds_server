@@ -5,7 +5,7 @@ router.post('/sign', async(req, resp, done)=> {
     try {
         await authService.sign(req.body, resp);
     } catch (e) {
-        resp.status(500).json({ status: 'Error', message: e.message });
+        return resp.status(500).json({ status: 'Error', message: e.message });
     }
 });
 
@@ -13,7 +13,7 @@ router.post('/signup', async (req, resp, done)=> {
     try {
         await authService.signUp(req.body, resp);
     } catch (e) {
-        resp.status(500).json({ status: 'Error', message: e.message });
+        return resp.status(500).json({ status: 'Error', message: e.message });
     }
 });
 

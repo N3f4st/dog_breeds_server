@@ -4,6 +4,11 @@ const { compareSync, hashSync, genSaltSync } = require('bcryptjs');
 const { sign } = require('jsonwebtoken')
 
 const authService = {
+    /**
+   * autenticates an user to entire service
+   * @param {Object} body - profile information
+   * @param {Object} resp - server response
+   */
     sign: async(body, resp) => {
 
         if (!body.email || !body.password || !body.appKey) {
@@ -41,7 +46,7 @@ const authService = {
                     roleId,
                     fullName
                 }, tknSignOptions = {
-                    expiresIn: '15m'
+                    expiresIn: '5m'
                 };
 
                 // generates token and retrieve
@@ -60,6 +65,11 @@ const authService = {
             clientMessage: m.FRBDN_ERR_MSJ
         });
     },
+    /**
+   * Creates new profile
+   * @param {Object} body - profile information
+   * @param {Object} resp - server response
+   */
     signUp: async(body, resp) => {
 
         if (!body.name || !body.email || !body.password || !body.appKey) {
@@ -112,6 +122,10 @@ const authService = {
         });
     }
 }
+  /**
+   * Hashed the password to be saved on database.
+   * @param {string} password - incomming form password.
+   */
 obtainHash = (password) => {
     const salt = genSaltSync(10);
     const hash = hashSync(password, salt);

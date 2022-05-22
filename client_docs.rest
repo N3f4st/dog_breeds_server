@@ -5,17 +5,16 @@ POST http://localhost:5000/auth/sign
 Content-Type: application/json
 
 {
-    "user": "doghouse",
-    "password": "1234",
+    "email": "ale.lacayo@somedomain.com",
+    "password": "pescadito04",
     "appKey": "doggoservice"
 }
 
 ###
-POST http://localhost:5000/auth/user_register
+POST http://localhost:5000/auth/signup
 Content-Type: application/json
 
 {
-    "userName": "ale.lacayo",
     "email": "ale.lacayo@somedomain.com",
     "password": "pescadito04",
     "name": "Alexandra Lacayo",

@@ -5,12 +5,16 @@ router.post('/sign', async(req, resp, done)=> {
     try {
         await authService.sign(req.body, resp);
     } catch (e) {
-        resp.status(500).json({ status: 'Error', message: error.message });
+        resp.status(500).json({ status: 'Error', message: e.message });
     }
 });
 
-router.post('/user_register', async (req, resp, done)=> {
-
+router.post('/signup', async (req, resp, done)=> {
+    try {
+        await authService.signUp(req.body, resp);
+    } catch (e) {
+        resp.status(500).json({ status: 'Error', message: e.message });
+    }
 });
 
 module.exports = router;

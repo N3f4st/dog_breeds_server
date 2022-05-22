@@ -5,5 +5,7 @@ module.exports = {
     FRBDN_ERR_MSJ: 'The user does not exist or the password is incorrect.',
     SCCSS_CLIENT_MSJ: 'Successful operation.',
     WLCM_CLIENT_MSJ: 'Welcome.',
-    NFNDAPK_SERVER_MSJ: 'Server Key not found.'
+    NFNDAPK_SERVER_MSJ: 'Server Key not found.',
+    USRALRDYEXST_CLIENT_MSJ: 'User already exist.',
+    USRCREATED_CLIENT_MSJ: 'User successfully created.'
 }

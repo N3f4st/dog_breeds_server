@@ -4,8 +4,18 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 let app = express();
-app.use(bodyParser.json({limit: '1mb', extended: true}));
-app.use(bodyParser.urlencoded({limit: '1mb', extended: true}));
+app.use(bodyParser.json({limit: '1mb', extended: false}));
+app.use(bodyParser.urlencoded({limit: '1mb', extended: false}));
+
+// For testing purposes
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+});
+
 
 app.use(require('./routes'));
 

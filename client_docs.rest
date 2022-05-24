@@ -28,9 +28,20 @@ Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInJvbGVJZC
 ###
 GET http://localhost:5000/api/dog-api-bypass/sub-bread/hound/list
 Content-Type: application/json
-Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInJvbGVJZCI6MSwiZnVsbE5hbWUiOiJBbGV4YW5kcmEgTGFjYXlvIiwiaWF0IjoxNjUzMjYwNDgwLCJleHAiOjE2NTMyNjA1NDB9.wUmpnehkZqfr1BOiAKA8kq4-yw0WwEYGmY0p0_hRXdI
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInJvbGVJZCI6MSwiZnVsbE5hbWUiOiJBbGV4YW5kcmEgTGFjYXlvIiwiaWF0IjoxNjUzNDAxMTU2LCJleHAiOjE2NTM0MDIzNTZ9.w17XbCjWv9fCF2W7wrteBTfZ10x53REzx15tg8aeoI8
 
 ###
-GET http://localhost:5000/api/dog-api-bypass/sub-bread/hound/radom-image
+GET http://localhost:5000/api/dog-api-bypass/australian/sub-bread/shepherd/random-image
 Content-Type: application/json
-Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInJvbGVJZCI6MSwiZnVsbE5hbWUiOiJBbGV4YW5kcmEgTGFjYXlvIiwiaWF0IjoxNjUzMjYwNDgwLCJleHAiOjE2NTMyNjA1NDB9.wUmpnehkZqfr1BOiAKA8kq4-yw0WwEYGmY0p0_hRXdI
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInJvbGVJZCI6MSwiZnVsbE5hbWUiOiJBbGV4YW5kcmEgTGFjYXlvIiwiaWF0IjoxNjUzNDA3NTIxLCJleHAiOjE2NTM0MDg3MjF9.yuG_8O_YDNsgQ4RC6im4dl8uRFrT2kFy0TZXVvqSg_4
+
+###
+PUT http://localhost:5000/api/dog-api-bypass/set-as-favorite-breed
+Content-Type: application/json
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInJvbGVJZCI6MSwiZnVsbE5hbWUiOiJBbGV4YW5kcmEgTGFjYXlvIiwiaWF0IjoxNjUzNDA2NjU3LCJleHAiOjE2NTM0MDc4NTd9.oXUvq16E50VfYkYpCUVDf44dbE2M8Jp_XpA6lTfedI0
+
+{
+    "email": "ale.lacayo@somedomain.com",
+    "breed": "BREED",
+    "subBreed": "SUBBREED"
+}

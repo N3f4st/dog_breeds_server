@@ -36,17 +36,16 @@ const authService = {
             });
         
         if (queryResult.rows.length > 0) {
-            const { id, roleId, fullName, password } = queryResult.rows[0];
-
+            const { id, roleId, fullName, password, favoriteSubBreed, favoriteBreed } = queryResult.rows[0];
             // Evaluates database password with the client sent password using bcrypt.
             if (compareSync(formPassword, password)) {
                 // Bulk token parameters
                 const tknPayload = {
                     id,
                     roleId,
-                    fullName
+                    fullName,
                 }, tknSignOptions = {
-                    expiresIn: '5m'
+                    expiresIn: '20m'
                 };
 
                 // generates token and retrieve
@@ -54,7 +53,10 @@ const authService = {
                 return resp.status(200).json({
                     status: 1000,
                     clientMessage: m.WLCM_CLIENT_MSJ,
-                    token
+                    fullName,
+                    token,
+                    favoriteSubBreed,
+                    favoriteBreed
                 });
             }
         } 
@@ -101,7 +103,7 @@ const authService = {
         if (uQtyRes.rows[0].qty > 0)
             return resp.status(409).json({
                 status: 1012,
-                clientMessage: m.USRALRDYEXST_CLIENT_MSJ
+                clientMessage: `Sorry, the email ${email} already exist.`
             });
         
         // encrypt password to save on database.
@@ -119,6 +121,29 @@ const authService = {
         return resp.status(201).json({
             status: 1000,
             clientMessage: m.USRCREATED_CLIENT_MSJ
+        });
+    },
+    setBreedAsFavorite: async(body, resp) => {
+
+        if (!body.breed || !body.email || !body.subBreed) {
+            return resp.status(400).send(m.MLFRMD_ERR_MSJ);
+        }
+        const email = body.email,
+              breed = body.breed,
+              subBreed = body.subBreed;
+        
+        const queryResult = await authDal.setAsFavoriteBreed(breed, subBreed, email);
+        if (queryResult.message) // Error.
+            return resp.status(400).json({
+                status: 1003,
+                dbError: queryResult.message,
+                clientMessage: m.DBCLIENT_ERR_MSJ
+            });
+
+        // user created
+        return resp.status(201).json({
+            status: 1000,
+            clientMessage: m.FAVRTSET_CLIENT_MSJ
         });
     }
 }

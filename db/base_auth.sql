@@ -10,7 +10,9 @@ CREATE TABLE auth.app_user
     email      varchar(75)        NOT NULL,
     created_at TIMESTAMP          NOT NULL,
     updated_at TIMESTAMP          NOT NULL,
-    role_id    int
+    role_id    int,
+    favorite_subbreed  varchar(50),
+    favorite_breed  varchar(50)
 );
 
 -- mock data
@@ -39,12 +41,11 @@ CREATE OR REPLACE PROCEDURE auth.register_user(
 
 
 -- modifying auth function to recognize username or email.
-drop function auth.user_auth(uName varchar);
 CREATE OR REPLACE FUNCTION auth.user_auth (uName varchar(100))
-RETURNS TABLE(id int, role_id int, name varchar(255), password varchar(250))
+RETURNS TABLE(id int, role_id int, name varchar(255), password varchar(255), favoriteSubBreed varchar(250), favoriteBreed varchar(250))
 language SQL AS
     $$
-        SELECT id, role_id, name, password  from auth.app_user where email = uName;
+        SELECT id, role_id, name, password, favorite_subbreed, favorite_breed  from auth.app_user where email = uName;
     $$;
 
 
@@ -54,3 +55,17 @@ language SQL AS
     $$
         SELECT count(1) as qty from auth.app_user where email = _userOrEmail;
     $$;
+
+
+-- create registration procedure
+drop procedure auth.update_user_favorite(_email varchar, _favoritesubbreed varchar)
+CREATE OR REPLACE PROCEDURE auth.update_user_favorite(
+    _email varchar(255),
+    _favoriteSubBreed varchar(50),
+    _favoriteBreed varchar(50)) AS
+    $$
+        begin
+            UPDATE auth.app_user SET favorite_subbreed = _favoriteSubBreed, favorite_breed = _favoriteBreed WHERE email = _email;
+        end;
+    $$ language plpgsql;
+

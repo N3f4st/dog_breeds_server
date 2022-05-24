@@ -28,6 +28,7 @@ const dogApiByPassService = {
    * @param {Object} resp - http client request.
    */
       subBreedListByBreed: async(resp, req) =>{
+          debugger;
         if (!req.params.bread) 
         return resp.status(400).send(m.MLFRMD_ERR_MSJ);
 
@@ -54,11 +55,12 @@ const dogApiByPassService = {
      * @param {Object} resp - http client request.
      */
       imageUrlFromSubBread: async(resp, req) =>{
-        if (!req.params.subbread) 
+        if (!req.params.subbread || !req.params.breed) 
         return resp.status(400).send(m.MLFRMD_ERR_MSJ);
 
         const pathParamSubBreed = req.params.subbread;
-        const imageUrl = await dogsApiConsumerHelper.imageUrl(pathParamSubBreed);
+        const pathParamBreed = req.params.breed;
+        const imageUrl = await dogsApiConsumerHelper.imageUrl(pathParamBreed, pathParamSubBreed);
 
         // Check if has any error on the api consumption
         if (imageUrl.status === 'error')

@@ -29,10 +29,10 @@ const dogsApiConsumerHelper = {
    /**
    * Retrieve a random image link from sub-breed
    */
-    imageUrl: async(subBread) => {
+    imageUrl: async(breed, subBread) => {
         const subBreedListReqOptions = {
             host: dogApiHostName,
-            path: `/api/breed/${subBread}/images/random`,
+            path: `/api/breed/${breed}/${subBread}/images/random`,
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
           };
